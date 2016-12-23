@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         resources :farmacologico_treatments
         resources :laboratory_exams
         
-  end
+    end
 
 
   
