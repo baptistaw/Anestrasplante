@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.2.5.1'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass'
 gem 'uglifier', '>= 1.3.0'
@@ -26,7 +25,7 @@ gem 'devise-i18n-views', github: 'mcasimir/devise-i18n-views', branch: :master
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3'
+  gem 'pg'
 end
 
 group :production do
