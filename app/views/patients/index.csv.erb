@@ -1,0 +1,6 @@
+<%- headers = ['Nombre', 'Apellido', 'CI'] -%>
+<%= CSV.generate_line headers %>
+
+<%- @patients.each do |patient| -%>
+<%= CSV.generate_line([patient.nombre, patient.apellido, patient.ci]) -%>
+<%- end -%>

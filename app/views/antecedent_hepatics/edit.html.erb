@@ -1,0 +1,63 @@
+<div class conteiner>
+<br>
+<br>
+<h1>Editar Antecedentes de la Enfermedad Hepatica</h1>
+
+<%= simple_form_for ([@patient, @antecedent_hepatic]) do |f| %>
+  
+  
+    <div>
+      Sindrome Hepatorrenal
+       <%= f.select(:s_hepatopulmonar, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      Sindrome Hepatorrenal
+      <%= f.select(:s_hepatorrenal, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      HT Pulmonar
+      <%= f.select(:ht_pulmonar, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      HT Portal
+      <%= f.select(:ht_portal, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Ascitis
+      <%= f.select(:ascitis, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Esplenomegalia
+      <%= f.select(:esplenomeg, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Varices Esofágicas
+      <%= f.select(:varices_esof, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Encefalopatía
+      <%= f.select(:encefalopatia, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Discrasia
+      <%= f.select(:discrasia, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Hiponatremia
+      <%= f.select(:hiponatremia, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      Comentarios
+      <%= f.text_area(:comentarios, class: "form-control", placeholder: "Notas") %>
+    </div>
+
+    <div>
+      <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+      <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+
+ </div>

@@ -1,0 +1,41 @@
+
+
+
+<div class="container">
+  <header>
+      <nav class="navbar navbar-default navbar-fixed-top deep-purple lighten-5" role="navigation">
+        <div class="container-fluid deep-purple lighten-5">
+          <div class="navbar-header deep-purple lighten-5">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+              <span class="sr-only">Menú</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "Sistema Trasplante", root_path, class: "navbar-brand" %>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-right deep-purple lighten-5" id="navbar-1">
+                <ul class="nav navbar-nav" deep-purple lighten-5>
+
+                    <% if user_signed_in? %>
+                          <li><%= link_to "Paciente Nuevo", new_patient_path %></li>
+                          <li><%= link_to "Listado Pacientes", patients_path %></li>
+                    <% end %>
+                    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                    <% if user_signed_in? %>
+                          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to current_user.email, destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                          <li><%= link_to "Log In", new_user_session_path %></li>
+                    <% end %>
+                    
+                </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+

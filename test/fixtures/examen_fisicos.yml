@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apertura_bucal: MyString
+  mpt: MyString
+  protesis: MyString
+  cuello: MyString
+  pa_sistolica: 1
+  pa_diastolica: 1
+  fc: 1
+  soplos: false
+  pp: MyString
+  tiroides: MyString
+  reperes_vvc: MyString
+  red_venosa: MyString
+  test_allen: MyString
+  siquismo: MyString
+  flapping: 
+  estado_nutricional: MyString
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1
+
+two:
+  apertura_bucal: MyString
+  mpt: MyString
+  protesis: MyString
+  cuello: MyString
+  pa_sistolica: 1
+  pa_diastolica: 1
+  fc: 1
+  soplos: false
+  pp: MyString
+  tiroides: MyString
+  reperes_vvc: MyString
+  red_venosa: MyString
+  test_allen: MyString
+  siquismo: MyString
+  flapping: 
+  estado_nutricional: MyString
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1

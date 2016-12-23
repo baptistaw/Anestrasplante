@@ -1,0 +1,87 @@
+   <div class container>    
+   <br>
+   <br>
+            <%= form_for ([@patient, @patient.actual_hepatics.build]) do |f| %>
+                            
+              <div>
+              Sindrome Hepatorrenal
+                  <%= f.select(:s_hepatorrenal, options_for_select(['No','Tipo I Rapidamente Progresivo', 'Tipo II Estable']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Sindrome Hepatopulmonar
+                  <%= f.select(:s_hepatopulmonar, options_for_select(['No', 'Leve', 'Moderado', 'Severo']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              HT Pulmonar
+                  <%= f.select(:ht_pulmonar, options_for_select(['No','Leve', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              HT Portal
+                  <%= f.select(:ht_portal, options_for_select([ 'No','Leve', 'Moderada', 'Severa' ]), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Ascitis
+                  <%= f.select(:ascitis, options_for_select([ 'No','Minima', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Esplenomegalia
+                  <%= f.select(:esplenomeg, options_for_select(['No','Grado I', 'Grado II', 'Grado III', 'Grado IV']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Varices Esofagicas
+                  <%= f.select(:varices_esof, options_for_select(['No', 'Sin Clasificar', 'Estadio I', 'Estadio II', 'Estadio III', 'Estadio IV']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Encefalopatia
+                  <%= f.select(:encefalopatia, options_for_select(['No','Grado I', 'Grado II', 'Grado III', 'Grado IV']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+                Discrasia
+                <%= f.select(:discrasia, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+              Hiponatremia
+                  <%= f.select(:hiponatremia, options_for_select(['No','Leve', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+                Comentarios
+                <%= f.text_area(:comentarios, class: "form-control", placeholder: "Notas") %>
+              </div>
+
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+            <% end %>
+
+ </div>
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

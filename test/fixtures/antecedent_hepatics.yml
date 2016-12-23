@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  s_hepatorrenal: false
+  s_hepatopulmonar: false
+  ht_pulmonar: false
+  ht_portal: false
+  ascitis: false
+  esplenomeg: false
+  varices_esof: false
+  encefalopatia: false
+  discrasia: false
+  hiponatremia: false
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1
+
+two:
+  s_hepatorrenal: false
+  s_hepatopulmonar: false
+  ht_pulmonar: false
+  ht_portal: false
+  ascitis: false
+  esplenomeg: false
+  varices_esof: false
+  encefalopatia: false
+  discrasia: false
+  hiponatremia: false
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1

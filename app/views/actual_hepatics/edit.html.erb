@@ -1,0 +1,66 @@
+<div class conteiner>
+<br>
+<br>
+<h1>Editar datos de la Enfermedad Hepática Actual</h1>
+
+<%= simple_form_for ([@patient, @actual_hepatic]) do |f| %>
+  
+    
+              <div>
+              Sindrome Hepatorrenal
+                  <%= f.select(:s_hepatorrenal, options_for_select(['No','Tipo I Rapidamente Progresivo', 'Tipo II Estable']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Sindrome Hepatopulmonar
+                  <%= f.select(:s_hepatopulmonar, options_for_select(['No', 'Angor estable CF I','Angor estable CF II', 'Angor estable CF III', 'Angor estable CF IV', 'Angor Inestable', 'Angina Prinzmetal']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              HT Pulmonar
+                  <%= f.select(:ht_pulmonar, options_for_select(['No','Leve', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              HT Portal
+                  <%= f.select(:ht_portal, options_for_select([ 'No','Leve', 'Moderada', 'Severa' ]), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Ascitis
+                  <%= f.select(:ascitis, options_for_select([ 'No','Minima', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Esplenomegalia
+                  <%= f.select(:esplenomeg, options_for_select(['No','Grado I', 'Grado II', 'Grado III', 'Grado IV']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Varices Esofagicas
+                  <%= f.select(:varices_esof, options_for_select(['No', 'Sin Clasificar', 'Estadio I', 'Estadio II', 'Estadio III', 'Estadio IV']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Encefalopatia
+                  <%= f.select(:encefalopatia, options_for_select(['No','Grado I', 'Grado II', 'Grado III', 'Grado IV']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+                Discrasia
+                <%= f.select(:discrasia, options_for_select(['No','SI']), {}, {class: "form-control"}) %></div>
+              </div>
+
+              <div>
+              Hiponatremia
+                  <%= f.select(:hiponatremia, options_for_select(['No','Leve', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+              <div>
+                Comentarios
+                <%= f.text_area(:comentarios, class: "form-control", placeholder: "Notas") %>
+              </div>
+
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+        <% end %>
+
+
+
+</div>

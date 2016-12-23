@@ -1,0 +1,138 @@
+<br>
+<br>
+<div class="col-md-6 col-md-offset-3">
+
+<h1>Editar Examen Fisico</h1>
+
+
+  <div class container>  
+  
+    <%= form_for ([@patient, @patient.examen_fisicos.build]) do |f| %>
+                            
+  
+      <div>
+         Apertura Bucal
+         <%= f.select(:apertura_bucal, options_for_select(['Normal','Menor a 3 cm', 'Otras alteraciones']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         MPT
+         <%= f.select(:mpt, options_for_select(['1','2', '3', '4']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Protesis
+         <%= f.select(:protesis, options_for_select(['No','Protesis Superior','Protesis Inferior', 'Protesis Completa', 'Anodoncia sin protesis', 'Diente centinela']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Cuello
+         <%= f.select(:cuello, options_for_select(['Sin limitacion flexoextension','Limitación 1/3', 'Limitacion 2/3', 'Limitacion > 2/3', 'Otras alteraciones']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+        PA Sistolica
+        <%= f.number_field :pa_sistolica %>
+      </div>
+
+      <div>
+        PA Diastolica
+        <%= f.number_field :pa_diastolica %>
+      </div>
+
+      <div>
+        FC
+        <%= f.number_field :fc %>
+      </div>
+
+
+      <div>
+        Soplos
+        <%= f.select(:soplos, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+
+
+      <div>
+         PP
+         <%= f.select(:pp, options_for_select(['Normal','Broncoespasmo', 'Derrame Pleural', 'Neumotorax', 'Hemotorax', 'Neumonia', 'Edema Pulmonar', 'SDRA', 'Otros hallazgos']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Tiroides
+         <%= f.select(:tiroides, options_for_select(['Normal','Bocio Difuso', 'Nodulo Toroideo', 'Otros hallazgos']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Reperes VVC
+         <%= f.select(:reperes_vvc, options_for_select(['Buenos','Aceptables', 'Malos', 'Otros hallazgos']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Red Venosa
+         <%= f.select(:red_venosa, options_for_select(['Buena','Aceptable', 'Mala', 'Otros hallazgos']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Test Allen
+         <%= f.select(:test_allen, options_for_select(['Normal','Patologico a Derecha', 'Patologico a Izquierda']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Siquismo
+         <%= f.select(:siquismo, options_for_select(['Normal','Patologia Siquiatrica', 'Encefalopatia Hepatica', 'Depresion', 'Otros hallazgos']), {}, {class: "form-control"}) %>
+      </div>
+
+
+      <div>
+        Flapping
+        <%= f.select(:flapping, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+         Estado Nutricional
+         <%= f.select(:estado_nutricional, options_for_select(['Normal','Desnutricion Leve', 'Desnutricion Moderada', 'Desnutricion Severa', 'Sobrepeso', 'Obesidad Grado I', 'Obesidad Grado II', 'Obesidad Grado III (Morbida)']), {}, {class: "form-control"}) %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label 'Comentarios' %><br>
+        <%= f.text_area :comentarios %>
+      </div>
+
+
+      <div>
+         <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+         <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+      </div>
+    <% end %>
+
+ </div>
+
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>
+

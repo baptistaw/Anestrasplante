@@ -1,0 +1,66 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= complementarios_exam.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(complementarios_exam.user_id).email%>
+    </li>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>ECG</th>
+      <th>Ecocardiograma Basal</th>
+      <th>Eco Dobutamina</th>
+      <th>PEG</th>
+
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= complementarios_exam.ecg %></td>
+        <td> <%= complementarios_exam.ecocardiograma %></td>
+        <td><%= complementarios_exam.ecodobutamina %></td>
+        <td> <%= complementarios_exam.ergometria %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+     <th>Holter</th>
+     <th>RxTx</th>
+     <th>Funcional Respiratorio</th>
+     <th>Comentarios<th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= complementarios_exam.holter %></td>
+        <td> <%= complementarios_exam.rxtx %></td>
+        <td><%= complementarios_exam.funcional_respiratorio %></td>
+        <td><%= complementarios_exam.comentarios %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if complementarios_exam.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_complementarios_exam_path(complementarios_exam.patient, complementarios_exam), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_complementarios_exam_path(complementarios_exam.patient, complementarios_exam), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

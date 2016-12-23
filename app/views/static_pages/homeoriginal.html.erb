@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	
+	<body>
+		<div class="center hero-unit">
+			
+			<h1>Sistema de Trasplante Hepático </h1>
+						
+			<% if user_signed_in? %>
+				<p>Bienvenido <%= current_user.email%> </p>
+				<p> <%= link_to "Acceder a la Base de Datos", patients_path %>
+			
+			<%else%>
+			
+				<p> Bienvenido <%= link_to "Iniciar sesion", new_user_session_path %>
+		
+			<<% end -%>
+			
+			<div class="conteiner">
+				</h2>
+					<p> Base de Datos de Anestesia para Trasplante Hepático</p>
+					
+				</h2>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,475 @@
+<br>
+<br>
+<br>
+<br>
+    <div>
+      <h5>
+        <p class="text-right">Unidad Bi Institucional</p>
+        <p class="text-right">Programa Nacional de Trasplante Hepático</p>
+        <p class="text-right">Servicio de Anestesiología</p>
+      </h5>
+    </div>
+<br>
+<br>
+    <div>
+      <h3>
+        <p class="text-left">Historia Clínica Anestesiológica del Paciente </p>
+      </h3>
+    </div>
+    <div>
+      <h2>
+        <p class="text-right"><%= @patient.nombre %> <%= @patient.apellido %></p>
+        <p class="text-right"> CI: <%= @patient.ci %></p>
+      </h2>
+        <div>
+          <p class="text-right"> Fecha de ingresado a la Base de Datos: <%= @patient.created_at.strftime("%Y-%m-%d")%></p>
+          <p class="text-right"> Ingresado por: <%= User.find(@patient.user_id).email%></p>
+        </div>
+
+
+    </div>
+ 
+  <br>
+  <br>
+        <div>
+          <p> Sexo: <%= @patient.sexo %></p>
+          
+        </div>
+        <div>
+          <p> Fecha Nacimiento: <%= @patient.f_nacimiento%></p>
+          
+        </div>
+        <div>
+          <p> Prodedencia: <%= @patient.procedencia%></p>
+          
+        </div>
+        <div>
+        <% if (@patient.comentarios != nil) %>
+           <p>Notas: <%= @patient.comentarios %></p>
+           <br>
+        <%else%>
+            <br>
+        <%end%>
+        </div>
+
+
+    <div>
+      <h4>
+        <p class="text-left"> Datos Generales </p>
+      </h4>
+    </div>
+
+
+<div>
+      <p>HEPATOPATIA</p>
+
+      <p>Etiologia: <%= @patient.last_corevaluation.causa_hepatopatia %></p>
+      <p>Pxif: <%= @patient.last_corevaluation.pxif %> Meld: <%= @patient.last_corevaluation.meld %> Melde: <%= @patient.last_corevaluation.melde %> Child: <%= @patient.last_corevaluation.child %></p>
+      <br>
+      <p>RIESGO ANESTESICO</p>
+     <p>Asa: <%= @patient.last_corevaluation.asa %></p>
+     <p>Maximos riesgos: <%= @patient.last_corevaluation.maximos_riesgos %> </p>
+      <br>
+      <p>LISTA DE TRASPLANTE</p>
+ 
+        <% if @patient.last_corevaluation.ingresa_lista == 'SI' %>
+          <p> Ingresa a Lista de Trasplante</p>
+          <p> Fecha Ingreso a Lista: <%= @patient.f_ingreso%></p>
+          <p>Candidato fastrack: <%= @patient.last_corevaluation.candidato_fastrack %></p>
+          <p>Candidato tranexamico: <%= @patient.last_corevaluation.candidato_tranexamico %></p>
+        <% else %>
+          <p> No Ingresa a Lista de Trasplante</p>
+          <p>Causa de No Ingreso: <%= @patient.last_corevaluation.causa_no_ingreso %></p>
+          <p>Estudios pendientes para el ingreso: <%= @patient.last_corevaluation.estudios_pendientes %></p>
+        <%end%>
+<br>
+
+</div>
+
+    <div>
+      <h4>
+        <p class="text-left">Antecedentes Personales Generales </p>
+      </h4>
+    </div>
+
+<div>
+        <p>El paciente presentó en algún momento de la evolución las siguienes patologías no vinculadas con su Hepatopatia:</p>
+        <% if @patient.last_antecedent.enf_coronaria == 'SI' %>
+        <p>Enfermedad Coronaria</p>
+        <% end %>
+
+        <% if @patient.last_antecedent.hta == 'SI' %>
+        <p>HTA</p>
+        <% end %>
+
+        <% if @patient.last_antecedent.valvulopatia == 'SI' %>
+        <p>Valvulopatia</p>
+        <% end %>
+
+        <% if @patient.last_antecedent.arritmias_marcapaso == 'SI' %>
+        <p>Arritmias/Marcapaso</p>
+        <% end %>
+        <% if @patient.last_antecedent.fumador == 'SI' %>
+        <p>Fumador</p>
+        <% end %>
+        <% if @patient.last_antecedent.epoc == 'SI' %>
+        <p>EPOC</p>
+        <% end %>
+        <% if @patient.last_antecedent.asma == 'SI' %>
+        <p>Asma</p>
+        <% end %>
+        <% if @patient.last_antecedent.nefropatia_uropatia == 'SI' %>
+        <p>Nefropatia/Uropatia</p>
+        <% end %>
+        <% if @patient.last_antecedent.diabetes == 'SI' %>
+        <p>Diabetes</p>
+        <% end %>
+        <% if @patient.last_antecedent.hipotiroidismo == 'SI' %>
+        <p>Hipotiroidismo</p>
+        <% end %>
+        <% if @patient.last_antecedent.hipertiroidismo == 'SI' %>
+        <p>Hipertiroidismo</p>
+        <% end %>
+        <% if @patient.last_antecedent.rge_gastritis_ulcus == 'SI' %>
+        <p>RGE/Gastritis/Ulcus GD</p>
+        <% end %>
+        <% if @patient.last_antecedent.alergias == 'SI' %>
+        <p>Alergia</p>
+        <% end %>
+        <% if @patient.last_antecedent.cirugia_abdominal == 'SI' %>
+        <p>Cirugia Abdominal Previa</p>
+        <% end %>
+        <div>
+        <% if (@patient.last_antecedent.comentarios != nil) %>
+         <br>
+           <p>Notas: <%= @patient.last_antecedent.comentarios %></p>
+        <%else%>
+            <br>
+        <%end%>
+        </div>
+<br>
+</div>
+
+    <div>
+      <h4>
+        <p class="text-left">Antecedentes de la Enfermedad Hepatica </p>
+      </h4>
+    </div>
+
+<div>
+
+        <p>El paciente presentó en algún momento de la evolución las siguientes patologías vinculadas con su Hepatopatia:</p>
+        <% if @patient.last_antecedenthepatic.s_hepatorrenal == 'SI' %>
+        <p>Sindrome Hepatorrenal</p>
+        <% end %>
+
+        <% if @patient.last_antecedenthepatic.s_hepatopulmonar == 'SI' %>
+        <p>Sindrome Hepatopulmonar</p>
+        <% end %>
+
+        <% if @patient.last_antecedenthepatic.ht_pulmonar == 'SI' %>
+        <p>Hipertensión Pulmonar</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.ht_portal == 'SI' %>
+        <p>Hipertension Portal</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.ascitis == 'SI' %>
+        <p>Ascitis</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.esplenomeg == 'SI' %>
+        <p>Esplenomegalia</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.varices_esof == 'SI' %>
+        <p>Vrices Esofágicas</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.encefalopatia == 'SI' %>
+        <p>Encefalopatia</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.discrasia == 'SI' %>
+        <p>Discrasia</p>
+        <% end %>
+        <% if @patient.last_antecedenthepatic.hiponatremia == 'SI' %>
+        <p>Hiponatremia</p>
+        <% end %>
+        <% if (@patient.last_antecedenthepatic.comentarios != nil) %>
+         <br>
+        <p>Notas: <%= @patient.last_antecedenthepatic.comentarios %></p>
+        <%else%>
+            <br>
+        <% end %>
+<br>
+</div>
+
+
+    <div>
+      <h4>
+        <p class="text-left">Enfermedad Actual Datos Generales</p>
+      </h4>
+    </div>
+
+        <p>El paciente presenta actualmente las siguientes patologias no vinculadas con su Hepatopatia:</p>
+
+        <p>Enfermedad Coronaria:  <%= @patient.last_actualdisease.enf_coronaria %></p>
+        <p>HTA: <%= @patient.last_actualdisease.hta %></p>
+        <p>Valvulopatia: <%= @patient.last_actualdisease.valvulopatia %></p>
+        <p>Arritmias/Marcapaso: <%= @patient.last_actualdisease.arritmias_marcapaso %></p>
+        <p>Fumador: <%= @patient.last_actualdisease.fumador %></p>
+        <p>EPOC: <%= @patient.last_actualdisease.epoc %></p>
+        <p>Asma: <%= @patient.last_actualdisease.asma %></p>
+        <p>Nefropatia/Uropatia: <%= @patient.last_actualdisease.nefropatia_uropatia %></p>
+        <p>Su Clase Funcional actual es: <%= @patient.last_actualdisease.clase_funcional %></p>
+ <br>
+     
+    
+
+
+    <div>
+      <h4>
+        <p class="text-left">Enfermedad Hepatica Actual</p>
+      </h4>
+    </div>
+        <p>El paciente presenta actualmente las siguientes patologias vinculadas con su Hepatopatia:</p>
+
+        <p>Sindorme Hepatorrenal: <%= @patient.last_actualhepatic.s_hepatorrenal %></p>
+        <p>Sindrome Hepatopulmonar: <%= @patient.last_actualhepatic.s_hepatopulmonar %></p>
+        <p>Hipertension Pulmonar: <%= @patient.last_actualhepatic.ht_pulmonar %></p>
+        <p>Ascitis: <%= @patient.last_actualhepatic.ascitis %></p>
+        <p>Esplenomegalia: <%= @patient.last_actualhepatic.esplenomeg %></p>
+        <p>Varices Esofágicas: <%= @patient.last_actualhepatic.varices_esof %></p>
+        <p>Encefalopatia: <%= @patient.last_actualhepatic.encefalopatia %></p>
+        <p>Discrasia: <%= @patient.last_actualhepatic.discrasia %></p>
+        <p>Hiponatremia: <%= @patient.last_actualhepatic.hiponatremia %></p>
+        <% if (@patient.last_actualhepatic.comentarios != nil) %>
+        <br>
+        <p>Notas: <%= @patient.last_actualhepatic.comentarios %></p>
+        <%else%>
+            <br>
+        <% end %>
+ <br>
+
+
+    <div>
+      <h4>
+        <p class="text-left">Examen Fisico</p>
+      </h4>
+    </div>
+        <p>Datos del Examen Fisico actual realizado al paciente:</p>
+
+        <p>Apertura Bucal: <%= @patient.last_examenfisico.apertura_bucal %></p>
+        <p>Score de MPT: <%= @patient.last_examenfisico.mpt %></p>
+        <p>Protesis Dental: <%= @patient.last_examenfisico.protesis %></p>
+        <p>Cuello: <%= @patient.last_examenfisico.cuello %></p>
+        <p>PA Sistolica: <%= @patient.last_examenfisico.pa_sistolica %></p>
+        <p>PA Disatolica: <%= @patient.last_examenfisico.pa_diastolica %></p>
+        <p>FC: <%= @patient.last_examenfisico.fc %></p>
+        <p>Soplos: <%= @patient.last_examenfisico.soplos %></p>
+        <p>Pleuropulmonar: <%= @patient.last_examenfisico.pp %></p>
+        <p>Tiroides: <%= @patient.last_examenfisico.tiroides %></p>
+        <p>Reperes VVC: <%= @patient.last_examenfisico.reperes_vvc %></p>
+        <p>Red Venosa Periférica: <%= @patient.last_examenfisico.red_venosa %></p>
+        <p>Test de Allen: <%= @patient.last_examenfisico.test_allen %></p>
+        <p>Siquismo: <%= @patient.last_examenfisico.siquismo %></p>
+        <p>Flapping: <%= @patient.last_examenfisico.flapping %></p>
+        <p>Estado Nutricional: <%= @patient.last_examenfisico.estado_nutricional %></p>
+        <% if (@patient.last_examenfisico.comentarios != nil) %>
+        <br>
+        <p>Notas: <%= @patient.last_examenfisico.comentarios %></p>
+        <%else%>
+            <br>
+        <% end %>
+<br>
+  
+
+    <div>
+      <h4>
+        <p class="text-left">Tratamiento Farmacológico</p>
+      </h4>
+    </div>
+
+        <p>Medicación que recibe el paciente actualmente:</p>
+
+        <% if @patient.last_tratamiento.betabloqueantes == 'SI' %>
+        <p>Betabloqueantes</p>
+        <% end %>
+        <% if @patient.last_tratamiento.bloqueantes_calcio == 'SI' %>
+        <p>Calcioantagonistas</p>
+        <% end %>
+        <% if @patient.last_tratamiento.stringieca == 'SI' %>
+        <p>IECA</p>
+        <% end %>
+        <% if @patient.last_tratamiento.diureticos == 'SI' %>
+        <p>Diureticos</p>
+        <% end %>
+        <% if @patient.last_tratamiento.colesteramina == 'SI' %>
+        <p>Colesteramina</p>
+        <% end %>
+        <% if @patient.last_tratamiento.omeprazol == 'SI' %>
+        <p>Omeprazol</p>
+        <% end %>
+        <% if @patient.last_tratamiento.antibioticos == 'SI' %>
+        <p>Antibioticos</p>
+        <% end %>
+        <% if (@patient.last_tratamiento.comentarios != nil) %>
+         <br>
+        <p>Notas: <%= @patient.last_tratamiento.comentarios %></p>
+        <%else%>
+            <br>
+        <% end %>
+        <br>
+
+
+
+    <div>
+      <h4>
+        <p class="text-left">Examenes de Laboratorio</p>
+      </h4>
+    </div>
+
+        <p>Ultima Paraclínica disponible del paciente:</p>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Hb</th>
+      <th>Hto</th>
+      <th>Plaquetas</th>
+      <th>Gb</th>
+      <th>TP</th>
+
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @patient.last_examenes.hb %></td>
+        <td> <%= @patient.last_examenes.hto %></td>
+        <td><%= @patient.last_examenes.plaquetas %></td>
+        <td> <%= @patient.last_examenes.gb %></td>
+        <td><%= @patient.last_examenes.tp %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+      <th>INR</th>
+      <th>Fibrinogeno</th>
+      <th>aPTT</th>
+      <th>Glicemia</th>
+     <th>Azoemia</th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @patient.last_examenes.inr %></td>
+        <td> <%= @patient.last_examenes.fibrinogeno %></td>
+        <td><%= @patient.last_examenes.aPTT %></td>
+        <td><%= @patient.last_examenes.glicemia %></td>
+        <td> <%= @patient.last_examenes.azoemia %></td>
+    </tr>
+    </tbody>
+
+   <thead>
+    <tr>
+     <th>Creatininemia</th>
+     <th>Na</th>
+     <th>K</th>
+     <th>Albumina</th>
+     <th>Proteinas Totales</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @patient.last_examenes.creatininemia %></td>
+        <td><%= @patient.last_examenes.na %></td>
+        <td><%= @patient.last_examenes.k %></td>
+        <td><%= @patient.last_examenes.albumina %></td>
+        <td><%= @patient.last_examenes.proteinas_totales %></td>
+    </tr>
+    </tbody>
+
+   <thead>
+    <tr>
+     <th>FA</th>
+     <th>TGO</th>
+     <th>TGP</th>
+     <th>BT</th>
+     <th>BD<th>
+    </tr>
+   </thead>
+
+    <tbody>
+      <tr>
+        <td> <%= @patient.last_examenes.fa %></td>
+        <td><%= @patient.last_examenes.tgo %></td>
+        <td><%= @patient.last_examenes.tgp %></td>
+        <td> <%= @patient.last_examenes.bt %></td>
+        <td> <%= @patient.last_examenes.bd %></td>
+      </tr>
+    </tbody>
+
+
+    <thead>
+    <tr>
+     <th>BI</th>
+     <th>Amilasemia</th>
+     <th>HIV</th>
+     <th>CMV</th>
+     <th>VDRL</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @patient.last_examenes.bi %></td>
+        <td><%= @patient.last_examenes.amilasemia %></td>
+        <td><%= @patient.last_examenes.hiv %></td>
+        <td><%= @patient.last_examenes.cmv %></td>
+        <td><%= @patient.last_examenes.vdrl %></td>
+      </tr>
+    </tbody>
+
+   <thead>
+    <tr>
+       <th>TSH</th>
+    </tr>
+   </thead>
+
+    <tbody>
+     <tr>
+       <td><%= @patient.last_examenes.tsh %></td>
+     </tr>
+    </tbody>
+
+  </table>
+
+        <p>Fecha de la ultima Paraclinica:  <%= @patient.last_examenes.fecha_ultima_parac.strftime("%d-%m-%Y") %></p>
+        <br>
+        <% if (@patient.last_examenes.comentarios != nil) %>
+        <p>Notas: <%= @patient.last_examenes.comentarios %></p>
+        <%else%>
+            <br>
+        <% end %>
+        <br>
+
+    <div>
+      <h4>
+        <p class="text-left">Examenes Complementarios de valoracion</p>
+      </h4>
+    </div>
+
+        <p>Otros Examenes de valoración realizados al paciente:</p>
+        <p>ECG: <%= @patient.last_complementariosexam.ecg %></p>
+        <p>RxTx: <%= @patient.last_complementariosexam.rxtx %></p>
+        <p>Ecocardiograma: <%= @patient.last_complementariosexam.ecocardiograma %></p>
+        <p>PEG: <%= @patient.last_complementariosexam.ergometria %></p>
+        <p>Ecodobutamina<%= @patient.last_complementariosexam.ecodobutamina %></p>
+        <p>Holter: <%= @patient.last_complementariosexam.holter %></p>
+        <p>Funcional Respiratorio: <%= @patient.last_complementariosexam.funcional_respiratorio %></p>
+
+        <% if (@patient.last_complementariosexam.comentarios!= nil) %>
+        <br>
+        <p>Notas: <%= @patient.last_complementariosexam.comentarios %></p>
+        <%else%>
+            <br>
+        <% end %>
+        <br>

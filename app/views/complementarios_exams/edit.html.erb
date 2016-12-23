@@ -1,0 +1,76 @@
+<div class conteiner>
+<br>
+<br>
+<h1>Editar Examenes Complementarios</h1>
+
+<%= simple_form_for ([@patient, @complementarios_exam]) do |f| %>
+  
+
+   <div>
+    ECG
+    <%= f.select(:ecg, options_for_select(['No realizado','Normal','Bloqueo de Rama Izquierda', 'Bloqueo Rama Derecha', 'Bloqueo AV 1er grado', 'Bloqueo AV 2o grado', 'Bloqueo AV completo', 'Secuela IAM']), {}, {class: "form-control"}) %>
+  </div>
+
+  <div>
+    Ecocardiograma
+    <%= f.select(:ecocardiograma, options_for_select(['No realizado','Normal', 'HVI', 'Alteraciones sectoriales de la contractilidad', 'FEVI < 40%', 'FEVI < 30%', 'Otras alteraciones']), {}, {class: "form-control"}) %>
+  </div>
+  <div>
+    Eco Dobutamina
+    <%= f.select(:ecodobutamina, options_for_select(['No realizado','Negativo para Isquemia','Positivo para Isquemia']), {}, {class: "form-control"}) %>
+  </div>
+  <div>
+    PEG
+    <%= f.select(:ergometria, options_for_select(['No realizado','Negativo para Isquemia','Positivo para Isquemia', 'No concluyente']), {}, {class: "form-control"}) %>
+  </div>
+  <div>
+    Holter
+    <%= f.select(:holter, options_for_select(['No realizado','Normal','Patologico']), {}, {class: "form-control"}) %>
+  </div>
+  <div>
+    RxTx
+    <%= f.select(:rxtx, options_for_select(['No realizado','Normal','Patológica']), {}, {class: "form-control"}) %>
+  </div>
+  <div>
+    Funcional Respiratorio
+    <%= f.select(:funcional_respiratorio, options_for_select(['No realizado','Obstructivo leve','Obstructivo Moderado', 'Obstructivo Severo', 'Restrictivo leve', 'Restrictivo Moderado', 'Restrictivo Severo', 'Patrón mixto leve', 'Patron mixto moderado', 'Patrón mixto Severo', '']), {}, {class: "form-control"}) %>
+  </div>
+  <div class="field">
+    <%= f.label 'Comentarios' %><br>
+    <%= f.text_area :comentarios %>
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+
+<% end %>
+
+
+</div>
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

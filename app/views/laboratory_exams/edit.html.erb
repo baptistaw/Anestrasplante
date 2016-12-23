@@ -1,0 +1,51 @@
+<br>
+<br>
+<div class="col-md-6 col-md-offset-3">
+
+<h1>Editar Examenes de Laboratorio</h1>
+
+<%= simple_form_for ([@patient, @laboratory_exam]) do |f| %>
+  
+
+    
+
+
+    <%= f.input :hb %>
+    <%= f.input :hto %>
+    <%= f.input :plaquetas %>
+    <%= f.input :gb %>
+    <%= f.input :tp %>
+    <%= f.input :inr %>
+    <%= f.input :fibrinogeno %>
+    <%= f.input :aPTT %>
+    <%= f.input :glicemia %>
+    <%= f.input :azoemia %>
+    <%= f.input :creatininemia %>
+    <%= f.input :na %>
+    <%= f.input :k %>
+    <%= f.input :albumina %>
+    <%= f.input :proteinas_totales %>
+    <%= f.input :fa %>
+    <%= f.input :tgo %>
+    <%= f.input :tgp %>
+    <%= f.input :bt %>
+    <%= f.input :bd %>
+    <%= f.input :bi %>
+    <%= f.input :amilasemia %>
+    <%= f.input :hiv %>
+    <%= f.input :cmv %>
+    <%= f.input :vdrl %>
+    <%= f.input :tsh %>
+    <%= f.input :fecha_ultima_parac %>
+    <%= f.input :comentarios %>
+
+      
+    <div>
+        <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+        <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+    </div>
+
+<% end %>
+
+
+</div>

@@ -1,0 +1,92 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= antecedent.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(antecedent.user_id).email%>
+    </li>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Enfermedad Coronaria</th>
+      <th>HTA</th>
+      <th>Valvulopatia</th>
+      <th>Arritmias/Marcapaso</th>
+      <th>Fumador</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= antecedent.enf_coronaria %></td>
+        <td> <%= antecedent.hta %></td>
+        <td><%= antecedent.valvulopatia %></td>
+        <td> <%= antecedent.arritmias_marcapaso %></td>
+        <td><%= antecedent.fumador %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+      <th>EPOC</th>
+      <th>Asma</th>
+      <th>Nefropatia/Uropatia</th>
+     <th>Diabetes</th>
+     <th>Hipotiroidismo<th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= antecedent.epoc %></td>
+        <td><%= antecedent.asma %></td>
+        <td><%= antecedent.nefropatia_uropatia %></td>
+        <td> <%= antecedent.diabetes %></td>
+        <td> <%= antecedent.hipotiroidismo %></td>
+      </tr>
+    <tbody>
+
+
+    </thead>
+     <tr>
+       <th>Hipertiroidismo</th>
+       <th>RGE/Gastritis/Ulcus</th>
+       <th>Alergias</th>
+       <th>Cirugía Abdominal previa</th>
+       <th>Comentarios</th>
+      </tr>
+    </thead>
+
+    <tr>
+        <td><%= antecedent.hipertiroidismo %></td>
+        <td><%= antecedent.rge_gastritis_ulcus %></td>
+        <td><%= antecedent.alergias %></td>
+        <td><%= antecedent.cirugia_abdominal %></td>
+        <td><%= antecedent.comentarios %></td>
+    </tr>
+    </tbody>
+      </tr>
+    </tbody>
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if antecedent.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_antecedent_path(antecedent.patient, antecedent), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_antecedent_path(antecedent.patient, antecedent), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

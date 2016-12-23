@@ -1,0 +1,80 @@
+<div class conteiner">
+<br>
+<br>
+<h1>Editar Datos Generales de la evaluacion del paciente</h1>
+
+<%= simple_form_for ([@patient, @corevaluation]) do |f| %>
+  
+    
+              <div>
+              Causa de la Hepatopatia
+                  <%= f.select(:causa_hepatopatia, options_for_select(['Sin aclarar','Alcoholica', 'Autoinmune', 'Cirrosis Biliar Primaria', 'Cirrosis Biliar Secundaria', 'Hepatitis B']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+              Peso actual
+                <%= f.number_field :peso %>
+              </div>
+              <div class="field">
+              Talla
+                <%= f.number_field :talla %>
+              </div>
+              <div>
+              Pxif
+                <%= f.number_field :pxif %>
+              </div>
+              <div>
+              MELD
+                <%= f.number_field :meld %>
+              </div>
+              <div>
+              MELDE
+                <%= f.number_field :melde %>
+              </div>
+              <div>
+              CHILD
+                  <%= f.select(:child, options_for_select(['Sin clasificar','A','B', 'C']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              ASA 
+                 <%= f.select(:asa, options_for_select(['I','II', 'III', 'IV']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Máximos riesgos
+                <%= f.text_area :maximos_riesgos %>
+              </div>
+          
+              <div>
+                Ingresa a Lista de Trasplante
+                 <%= f.select(:ingresa_lista, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+              Causa de no ingreso
+                <%= f.text_field :causa_no_ingreso %>
+              </div>
+              <div>
+              Estudios pendientes para el ingreso
+                <%= f.text_area :estudios_pendientes %>
+              </div>
+
+              <div>
+                Candidato a Protocolo Tranexamico
+                 <%= f.select(:candidato_tranexamico, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+              </div>
+
+              <div>
+                Candidato a Protocolo de Fastrack
+                 <%= f.select(:candidato_fastrack, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+              </div>
+
+
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+
+
+<% end %>
+
+</div>

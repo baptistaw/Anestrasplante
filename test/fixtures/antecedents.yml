@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enf_coronaria: false
+  hta: false
+  valvulopatia: false
+  arritmias_marcapaso: false
+  fumador: false
+  epoc: false
+  asma: false
+  nefropatia_uropatia: false
+  diabetes: false
+  hipotiroidismo: false
+  hipertiroidismo: false
+  rge_gastritis_ulcus: false
+  alergias: false
+  cirugia_abdominal: false
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1
+
+two:
+  enf_coronaria: false
+  hta: false
+  valvulopatia: false
+  arritmias_marcapaso: false
+  fumador: false
+  epoc: false
+  asma: false
+  nefropatia_uropatia: false
+  diabetes: false
+  hipotiroidismo: false
+  hipertiroidismo: false
+  rge_gastritis_ulcus: false
+  alergias: false
+  cirugia_abdominal: false
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1

@@ -1,0 +1,150 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= laboratory_exam.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(laboratory_exam.user_id).email%>
+    </li>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Hb</th>
+      <th>Hto</th>
+      <th>Plaquetas</th>
+      <th>Gb</th>
+      <th>TP</th>
+
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= laboratory_exam.hb %></td>
+        <td> <%= laboratory_exam.hto %></td>
+        <td><%= laboratory_exam.plaquetas %></td>
+        <td> <%= laboratory_exam.gb %></td>
+        <td><%= laboratory_exam.tp %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+      <th>INR</th>
+      <th>Fibrinogeno</th>
+      <th>aPTT</th>
+      <th>Glicemia</th>
+     <th>Azoemia</th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= laboratory_exam.inr %></td>
+        <td> <%= laboratory_exam.fibrinogeno %></td>
+        <td><%= laboratory_exam.aPTT %></td>
+        <td><%= laboratory_exam.glicemia %></td>
+        <td> <%= laboratory_exam.azoemia %></td>
+    </tr>
+    </tbody>
+
+   <thead>
+    <tr>
+     <th>Creatininemia</th>
+     <th>Na</th>
+     <th>K</th>
+     <th>Albumina</th>
+     <th>Proteinas Totales</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= laboratory_exam.creatininemia %></td>
+        <td><%= laboratory_exam.na %></td>
+        <td><%= laboratory_exam.k %></td>
+        <td><%= laboratory_exam.albumina %></td>
+        <td><%= laboratory_exam.proteinas_totales %></td>
+    </tr>
+    </tbody>
+
+   <thead>
+    <tr>
+     <th>FA</th>
+     <th>TGO</th>
+     <th>TGP</th>
+     <th>BT</th>
+     <th>BD</th>
+    </tr>
+   </thead>
+
+    <tbody>
+      <tr>
+        <td> <%= laboratory_exam.fa %></td>
+        <td><%= laboratory_exam.tgo %></td>
+        <td><%= laboratory_exam.tgp %></td>
+        <td> <%= laboratory_exam.bt %></td>
+        <td> <%= laboratory_exam.bd %></td>
+      </tr>
+    </tbody>
+
+
+    <thead>
+    <tr>
+     <th>BI</th>
+     <th>Amilasemia</th>
+     <th>HIV</th>
+     <th>CMV</th>
+     <th>VDRL</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= laboratory_exam.bi %></td>
+        <td><%= laboratory_exam.amilasemia %></td>
+        <td><%= laboratory_exam.hiv %></td>
+        <td><%= laboratory_exam.cmv %></td>
+        <td><%= laboratory_exam.vdrl %></td>
+      </tr>
+    </tbody>
+
+   <thead>
+    <tr>
+       <th>TSH</th>
+       <th>Fecha ultima paraclinica</th>
+       <th>Comentarios</th>
+
+    </tr>
+   </thead>
+    <tbody>
+     <tr>
+       <td><%= laboratory_exam.tsh %></td>
+       <td><%= laboratory_exam.fecha_ultima_parac %></td>
+       <td><%= laboratory_exam.comentarios %></td>
+
+     </tr>
+    </tbody>
+
+  </table>
+
+
+
+<% if user_signed_in? %>
+
+    <% if laboratory_exam.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_laboratory_exam_path(laboratory_exam.patient, laboratory_exam), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_laboratory_exam_path(laboratory_exam.patient, laboratory_exam), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

@@ -1,0 +1,106 @@
+
+
+<div class container> 
+
+<br>
+<br>
+      <%= form_for ([@patient, @patient.antecedents.build]) do |f| %>
+
+
+    <div>
+      Enfermedad Coronaria
+       <%= f.select(:enf_coronaria, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      HTA
+       <%= f.select(:hta, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Valvulopatia
+       <%= f.select(:valvulopatia, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Arritmias/Marcapaso
+       <%= f.select(:arritmias_marcapaso, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Fumador
+       <%= f.select(:fumador, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      EPOC
+       <%= f.select(:epoc, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Asma
+       <%= f.select(:asma, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Nefropatia/Uropatia
+       <%= f.select(:nefropatia_uropatia, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Diabetes
+       <%= f.select(:diabetes, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Hipotiroidismo
+       <%= f.select(:hipotiroidismo, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Hipertiroidismo
+       <%= f.select(:hipertiroidismo, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      RGE/Gastritis/Ulcus GD
+       <%= f.select(:rge_gastritis_ulcus, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Alergias
+       <%= f.select(:alergias, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+    <div>
+      Cirugía Abdominal Previa
+       <%= f.select(:cirugia_abdominal, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+    </div>
+
+      <div class="field">
+        <%= f.label 'Comentarios' %><br>
+        <%= f.text_area :comentarios %>
+      </div>
+      <div>
+        <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+        <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+      </div>
+
+  <% end %>
+
+ </div>
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

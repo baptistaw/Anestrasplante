@@ -1,0 +1,198 @@
+  <br>
+  <br>
+  <ul class="list-inline">
+    <li>
+      <h2>
+        <p class="text-left">Paciente: </p>
+      </h2>
+    </li>
+    <li>
+      <h3>
+        <p class="text-right"><%= @patient.nombre %> <%= @patient.apellido %></p>
+      </h3>
+     <li>
+       Ingresado por <%= User.find(@patient.user_id).email%>
+
+    </li>
+  </ul>
+
+  <%= link_to "Imprimir Historia Clinica completa", hcpaciente_path(@patient.id) %> 
+
+  <table class="responsive-table">
+    <thead>
+    <tr>
+      <th>CI</th>
+      <th>Fecha Nacimiento</th>
+      <th>Sexo</th>
+      <th>Prestador</th>
+      <th>Procedencia</th>
+      <th>Fecha Ingreso al Sistema</th>
+      <th>Fecha Ingreso a lista Trasplante</th>
+      <th>Fnr</th>
+      <th></th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @patient.ci %></td>
+        <td><%= @patient.f_nacimiento%></td>
+        <td><%= @patient.sexo %></td>
+        <td><%= @patient.prestador %></td>
+        <td><%= @patient.procedencia %></td>
+        <td><%= @patient.created_at.strftime("%d-%m-%Y")%></td>
+        <td><%= @patient.f_ingreso%></td>
+        <td><%= @patient.fnr %></td>
+       </tr>
+		  
+    </tbody>
+  </table>
+
+	<table class="responsive-table">
+		<tbody>
+				<tr>
+				   <td><%= @patient.comentarios %></td>
+				</tr>
+			
+		</tbody>	
+	</table>
+
+</div class="row">
+
+ 
+  <% if user_signed_in? %>
+
+    <% if @patient.user_id == current_user.id %>
+      
+      <%= link_to "Editar", edit_patient_path(@patient), class: 'btn btn-warning' %>
+      <%= link_to "Eliminar", patient_path(@patient), method: :delete, data: {confirm: "Esta seguro?"}, class: 'btn btn-danger' %>
+      <%= link_to "Atras", patients_path, class: 'btn btn-warning' %>
+    <% end %>
+  <% end %>
+</div>
+
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      
+      <div class="collapsible-header"><i class="material-icons"></i>Datos Generales</div>
+      
+      <div class="collapsible-body">
+        <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.corevaluations %>
+      </div>
+
+    </li>
+    
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Antecedentes Personales generales</div>
+      
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Antecedentes Personales generales", new_patient_antecedent_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.antecedents %>
+
+      </div>
+    
+    </li>
+    
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Antecedentes de la Enfermedad Hepatica</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Antecedentes de la Enfermedad Hepatica", new_patient_antecedent_hepatic_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.antecedent_hepatics %>
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Enfermedad Actual datos generales</div>
+      <div class="collapsible-body">
+        <%= link_to "Ingresar datos generales de la Enfermedad Actual", new_patient_actual_disease_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.actual_diseases %>
+
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Enfermedad Hepatica Actual</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar datos de la Enfermedad Hepatica actual", new_patient_actual_hepatic_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.actual_hepatics %>
+
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Examen Fisico</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar dados del Examen Fisico", new_patient_examen_fisico_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.examen_fisicos %>
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Tratamiento Farmacologico</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Tratamiento Farmacologico actual", new_patient_farmacologico_treatment_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.farmacologico_treatments %>
+
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Examenes de Laboratorio</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Examens de Laboratorio", new_patient_laboratory_exam_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.laboratory_exams %>
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Examenes Complementarios de valoracion</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Examenes Comlementarios", new_patient_complementarios_exam_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.complementarios_exams %>
+
+      </div>
+    </li>
+
+  </ul>
+
+<script>
+ $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
+<script>
+  $('.collapsible').collapsible({
+      accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
+      onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
+    }
+</script>
+
+
+        
+        
+
+
+

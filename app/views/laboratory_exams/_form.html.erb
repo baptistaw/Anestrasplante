@@ -1,0 +1,182 @@
+<br>
+<br>
+
+  <div class container>  
+            <%= form_for ([@patient, @patient.laboratory_exams.build]) do |f| %>
+                            
+    <div class="field">
+      Hb
+      <%= f.number_field :hb %>
+    </div>
+
+    <div class="field">
+      Hto
+      <%= f.number_field :hto %>
+    </div>
+
+    <div class="field">
+      Plaquetas
+      <%= f.number_field :plaquetas %>
+    </div>
+
+    <div class="field">
+      GB
+      <%= f.number_field :gb %>
+    </div>
+
+    <div class="field">
+      TP
+      <%= f.number_field :tp %>
+    </div>
+
+    <div class="field">
+      INR
+      <%= f.number_field :inr %>
+    </div>
+
+    <div class="field">
+      Fibrinogeno
+      <%= f.number_field :fibrinogeno %>
+    </div>
+
+    <div class="field">
+      aPTT
+      <%= f.number_field :aPTT %>
+    </div>
+
+    <div class="field">
+      Glicemia
+      <%= f.number_field :glicemia %>
+    </div>
+
+    <div class="field">
+      Azoemia
+      <%= f.number_field :azoemia %>
+    </div>
+
+    <div class="field">
+      Creatininemia
+      <%= f.number_field :creatininemia %>
+    </div>
+
+    <div class="field">
+      Na
+      <%= f.number_field :na %>
+    </div>
+
+    <div class="field">
+      K
+      <%= f.number_field :k %>
+    </div>
+
+    <div class="field">
+      Albumina
+      <%= f.number_field :albumina %>
+    </div>
+
+    <div class="field">
+      Proteinas Totales
+      <%= f.number_field :proteinas_totales %>
+    </div>
+
+    <div class="field">
+      FA
+      <%= f.number_field :fa %>
+    </div>
+
+    <div class="field">
+      TGO
+      <%= f.number_field :tgo %>
+    </div>
+
+    <div class="field">
+      TGP
+      <%= f.number_field :tgp %>
+    </div>
+
+    <div class="field">
+      BT
+      <%= f.number_field :bt %>
+    </div>
+
+    <div class="field">
+      BD
+      <%= f.number_field :bd %>
+    </div>
+
+
+    <div class="field">
+      BI
+      <%= f.number_field :bi %>
+    </div>
+
+    <div class="field">
+      Amilasemia
+      <%= f.number_field :amilasemia %>
+    </div>
+
+    <div class="field">
+      TSH
+      <%= f.number_field :tsh %>
+    </div>
+
+    <div>
+      HIV
+      <%= f.select(:hiv, options_for_select(['Pendiente','Negativo', 'POSITIVO']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      CMV
+      <%= f.select(:cmv, options_for_select(['Pendiente','Negativo', 'POSITIVO']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      VDRL
+      <%= f.select(:vdrl, options_for_select(['Pendiente','Negativo', 'POSITIVO']), {}, {class: "form-control"}) %>
+    </div>
+
+    <div>
+      Fecha ultima paraclinica
+      <input type="date" class="datepicker">
+      <%= f.date_select(:fecha_ultima_parac, class: "form-control", placeholder: "Fecha ultima paraclinica") %>
+    </div>
+  
+    <div class="field">
+        <%= f.label 'Comentarios' %><br>
+        <%= f.text_area :comentarios %>
+    </div>
+
+
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+            <% end %>
+
+ </div>
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

@@ -1,0 +1,74 @@
+  <div class container>  
+    <br>
+    <br>
+        <%= form_for ([@patient, @patient.actual_diseases.build]) do |f| %>
+                            
+             <div>
+              Clase Funcional
+                  <%= f.select(:clase_funcional, options_for_select(['Clase I','Clase II', 'Clase III', 'Clase IV']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Enfermedad Coronaria
+                  <%= f.select(:enf_coronaria, options_for_select(['No','Angor Estable CF I', 'Angor Estable CF II', 'Angor Estable CF III', 'Angor Inestable', 'Angina Prinzmetal']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              HTA
+                  <%= f.select(:hta, options_for_select(['No','Leve', 'Moderada', 'Severa']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Valvulopatia
+                  <%= f.select(:valvulopatia, options_for_select(['No', 'Estenosis Aortica severa', 'Estenosis Mitral leve/moderada', 'Insuficiencia Aortica leve/moderada', 'Insuficiencia Aortica severa', 'Insuficiencia Mitral leve/moderada', 'Insuficiencia Mitral severa', 'Prolapso Mitral leve/moderado', 'Prolapso Mitral severo', 'Cardiopatia Congenita parcialmente corregida',' Cardiopatia Congenita totalmente corregida']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Arritmias_marcapaso
+                  <%= f.select(:arritmias_marcapaso, options_for_select(['No', 'Taquicarida Supraventricular', 'FA Crónica', 'FA Paroxistica', 'Fluter Auricular', 'Bloqueo AV primer grado', 'Bloqueo AV segundo grado', 'Bloqueo Rama Izquierda', 'Bloqueo Rama Derecha', 'Extrasistolia Aislada', 'Extrasistolia Frecuente']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Fumador
+                  <%= f.select(:fumador, options_for_select(['No','Leve/Moderado', 'Severo']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              EPOC
+                  <%= f.select(:epoc, options_for_select(['No','Sin Clasificar', 'Leve', 'Moderado', 'Grave', 'Final de la vida']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Asma
+                  <%= f.select(:asma, options_for_select(['No', 'Asma Intermitente','Asma Persistente Leve', 'Asma Persistente Moderada', 'Asma Persistente Grave']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+              Nefropatia/Uropatia
+                  <%= f.select(:nefropatia_uropatia, options_for_select(['No','Leve', 'Moderad', 'Severa', 'En Hemodialisis Cronica']), {}, {class: "form-control"}) %>
+              </div>
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+        <% end %>
+
+ </div>
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

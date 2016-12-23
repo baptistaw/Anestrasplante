@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<br>
+<br>
+
+<div>
+    <%= search_form_for @q do |f| %>
+
+           <div class="row">
+                      <div class="col-md-4">
+                        <%= f.text_field :apellido_cont, class: "form-control", placeholder: "Apellido" %>
+                      </div>
+                      <div class="col-md-4">
+                        <%= f.text_field :nombre_cont, class: "form-control", placeholder: "Nombre" %>
+                      </div>
+                      <div class="col-md-4">
+                        <%= f.text_field :ci_cont, class: "form-control", placeholder: "CI" %>
+                      </div>
+            </div>
+           <div class="row">
+                      <div class="input-daterange">
+                          <div class="col-md-4">
+                            <%= f.text_field :created_at_gteq, class: "form-control", placeholder: "Fecha Ingreso >= a" %>
+                          </div>
+                          <div class="col-md-4 col-md-offset-1">
+                            <%= f.text_field :created_at_lteq, class: "form-control", placeholder: "Fecha Ingreso <= a" %>
+                          </div>
+                      </div>
+          </div>
+          <div class="row">
+
+                      <div>
+                          <%= f.submit('Buscar', class: 'btn btn-primary') %>
+                      </div>
+          </div>
+
+    <% end %>
+</div>
+<br>
+
+<div>
+ Descargar listado de pacientes:
+  <%= link_to "PDF", patients_path(format: "pdf") %> |
+  <%= link_to "CSV", patients_path(format: "csv") %>
+</div>
+<br>
+
+
+<div>
+  <% if user_signed_in? %>
+    <%= button_to "Ingresar Paciente nuevo al sistema", new_patient_path, :method => "get", class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<h2>Pacientes Ingresados al Sistema</h2>
+
+<table class="responsive-table", class="striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :apellido, "Apellido") %> </th>
+      <th><%= sort_link(@q, :nombre, "Nombre") %></th>
+      <th><%= sort_link(@q, :ci, "CI") %></th>
+      <th><%= sort_link(@q, :sexo, "Sexo") %></th>
+      <th><%= sort_link(@q, :f_nacimiento, "F Nacimiento") %></th>
+      <th><%= sort_link(@q, :procedencia, "Procedencia") %></th>
+      <th><%= sort_link(@q, :f_ingreso, "F Ingreso a Lista Trasplante") %></th>
+      <th><%= sort_link(@q, :created_at, "F Ingresado al Sistema") %></th>
+      <th><%= sort_link(@q, :user_id, "Ingresado por") %></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= link_to patient.apellido, patient%></td>
+        <td><%= link_to patient.nombre, patient%></td>
+        <td><%= patient.ci %></td>
+        <td><%= patient.sexo %></td>
+        <td><%= patient.f_nacimiento%></td>
+        <td><%= patient.procedencia%></td>
+        <td><%= patient.f_ingreso%></td>
+        <td><%= patient.created_at.strftime("%d-%m-%Y")%></td>
+        <td><%= User.find(patient.user_id).email%></td>
+        
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

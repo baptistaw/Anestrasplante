@@ -1,0 +1,64 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= farmacologico_treatment.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(farmacologico_treatment.user_id).email%>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Betabloqueantes</th>
+      <th>Calcioantagonistas</th>
+      <th>IECA</th>
+      <th>Diureticos</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= farmacologico_treatment.betabloqueantes %></td>
+        <td> <%= farmacologico_treatment.bloqueantes_calcio %></td>
+        <td><%= farmacologico_treatment.stringieca %></td>
+        <td> <%= farmacologico_treatment.diureticos %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+     <th>Colesteramina</th>
+     <th>Omeprazol<th>
+     <th>ATB</th>
+     <th>Comentarios</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= farmacologico_treatment.colesteramina %></td>
+        <td> <%= farmacologico_treatment.omeprazol %></td>
+        <td><%= farmacologico_treatment.antibioticos %></td>
+        <td><%= farmacologico_treatment.comentarios %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if farmacologico_treatment.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_farmacologico_treatment_path(farmacologico_treatment.patient, farmacologico_treatment), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_farmacologico_treatment_path(farmacologico_treatment.patient, farmacologico_treatment), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

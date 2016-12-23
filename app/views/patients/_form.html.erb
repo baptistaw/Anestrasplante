@@ -1,0 +1,115 @@
+<br>
+<br>
+
+<%= form_for(@patient) do |f| %>
+
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+    <br>
+      <p><%= pluralize(@patient.errors.count, "errores") %> impiden que el paciente pueda ser ingresado:</p>
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <br>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td>
+          <div>
+            Nombre
+            <%= f.text_field(:nombre, class: "form-control", placeholder: "") %>
+          </div>
+          <div>
+            Apellido
+            <%= f.text_field(:apellido, class: "form-control", placeholder: "") %>
+          </div>
+          <div>
+            C.I.
+            <%= f.text_field(:ci, class: "form-control", placeholder: "") %>
+          </div>
+          <div>
+            FNR
+            <%= f.text_field(:fnr, class: "form-control", placeholder: "") %>
+          </div>
+        
+          <div>
+            Sexo
+            <%= f.select(:sexo, options_for_select(['Masculino','Femenino']), {}, {class: "form-control"}) %>
+          </div>
+          <div>
+
+          Fecha Nacimiento
+              <div class="input-daterange">
+                   <%= f.date_field :f_nacimiento, class: "form-control", placeholder: "" %>
+              </div>
+          Fecha Igreso al Programa de Trasplante
+              <div class="input-daterange">
+                   <%= f.date_field :f_ingreso, class: "form-control", placeholder: "" %>
+              </div>
+
+          <div>
+            Prestador
+            <%= f.select(:prestador, options_for_select(['ASSE','MUCAM','ASOC ESPAÑOLA','CIRCULO CATOLICO','CASA GALICIA','CASMU','GREMCA','GREMEDA','AMECOM','AMEDRIN','AMSJ','CAAMEPA','CAMCEL','CAMDEL','CAMEC','CAMEDUR','CAMOC','CAMS','CASMER','COMECA','COMEF','COMEFLO','COMEPA','COMERI','COMERO','COMTA','COPAMHI','CRAME','CRAMI','IAC','SMQS','COSEM','CUDAM','EVANGELICO','SMI','UNIVERSAL SPS','SEGURO BRITANICO','SEGURO AMERICANO','BLUECROSS','MP','SUMMUM']), {}, {class: "form-control"}) %>
+          </div>  
+
+          </div>
+     
+          <div>
+            Procedencia
+            <%= f.select(:procedencia, options_for_select(['Montevideo', 'Canelones','Paysandu', 'Salto', 'Artigas', 'Rio Negro','Soriano', 'Colonia', 'San Jose', 'Florida', 'Flores', 'Durazno', 'Rivera', 'Tacuarembo', 'Cerro Largo', 'Rocha', 'Maldonado', 'Lavalleja', 'Treinta y Tres']), {}, {class: "form-control"}) %>
+          </div>
+          <div>
+            Comentarios
+            <%= f.text_field(:comentarios, class: "form-control", placeholder: "") %>
+          </div>
+        </td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+  <div>
+    <%= f.submit('Confirmar', class: 'btn btn-primary') %>
+    <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+  </div>
+<% end %>
+ 
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+
+<script>
+$(".datepicker").datepicker({
+                dateFormat : "dd MM yy",
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 90 // Creates a dropdown of 15 years to control year
+                buttonImageOnly : true,
+                showOn : "both",
+                changeMonth : true,
+                changeYear : true,
+                yearRange : "c-20:c+5"
+            });
+</script>

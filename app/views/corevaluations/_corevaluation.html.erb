@@ -1,0 +1,85 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= corevaluation.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(corevaluation.user_id).email%>
+    </li>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Causa hepatopatia:</th>
+      <th>Pxif:</th>
+      <th>Meld:</th>
+      <th>Melde:</th>
+      <th>Child:</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= corevaluation.causa_hepatopatia %></td>
+        <td> <%= corevaluation.pxif %></td>
+        <td><%= corevaluation.meld %></td>
+        <td> <%= corevaluation.melde %></td>
+        <td><%= corevaluation.child %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+      <th>Asa:</th>
+     <th>Maximos riesgos:</th>
+     <th>Ingresa lista:</th>
+     <th>Causa no ingreso</th>
+     <th>Estudios pendietes ingreso:</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= corevaluation.asa %></td>
+        <td> <%= corevaluation.maximos_riesgos %></td>
+        <td> <%= corevaluation.ingresa_lista %></td>
+        <td><%= corevaluation.causa_no_ingreso %></td>
+        <td><%= corevaluation.estudios_pendientes %></td>
+      </tr>
+    </tbody>
+
+    <thead>
+    <tr>
+     <th>Candidato fastrack:</th>
+     <th>Candidato tranexamico:</th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+      <tr>
+        <td><%= corevaluation.candidato_fastrack %></td>
+        <td><%= corevaluation.candidato_tranexamico %></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if corevaluation.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_corevaluation_path(corevaluation.patient, corevaluation), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_corevaluation_path(corevaluation.patient, corevaluation), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

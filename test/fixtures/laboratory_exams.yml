@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hb: 1
+  hto: 1
+  plaquetas: 1
+  gb: 1
+  tp: 1
+  inr: 9.99
+  fibrinogeno: 1
+  aPTT: 1
+  glicemia: 9.99
+  azoemia: 9.99
+  creatininemia: 9.99
+  na: 1
+  k: 9.99
+  albumina: 9.99
+  proteinas_totales: 9.99
+  fa: 1
+  tgo: 1
+  tgp: 1
+  bt: 1
+  bd: 1
+  bi: 1
+  amilasemia: 1
+  hiv: MyString
+  cmv: MyString
+  vdrl: MyString
+  tsh: 9.99
+  fecha_ultima_parac: 2016-11-27
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1
+
+two:
+  hb: 1
+  hto: 1
+  plaquetas: 1
+  gb: 1
+  tp: 1
+  inr: 9.99
+  fibrinogeno: 1
+  aPTT: 1
+  glicemia: 9.99
+  azoemia: 9.99
+  creatininemia: 9.99
+  na: 1
+  k: 9.99
+  albumina: 9.99
+  proteinas_totales: 9.99
+  fa: 1
+  tgo: 1
+  tgp: 1
+  bt: 1
+  bd: 1
+  bi: 1
+  amilasemia: 1
+  hiv: MyString
+  cmv: MyString
+  vdrl: MyString
+  tsh: 9.99
+  fecha_ultima_parac: 2016-11-27
+  comentarios: MyText
+  user_id: 1
+  patient_id: 1

@@ -1,0 +1,74 @@
+  <div class container>  
+  
+      <%= form_for ([@patient, @patient.farmacologico_treatments.build]) do |f| %>
+
+
+      <div>
+        Betabloqueantes
+        <%= f.select(:betabloqueantes, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div>
+        Calcioantagonistas
+        <%= f.select(:bloqueantes_calcio, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+      <div>
+        IECA
+        <%= f.select(:stringieca, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+      <div>
+        Diureticos
+        <%= f.select(:diureticos, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+      <div>
+        Colesteramina
+        <%= f.select(:colesteramina, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+      <div>
+        Omeprazol
+        <%= f.select(:omeprazol, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+      <div>
+        Antibioticos
+        <%= f.select(:antibioticos, options_for_select(['No','SI']), {}, {class: "form-control"}) %>
+      </div>
+
+      <div class="field">
+        <%= f.label 'Comentarios' %><br>
+        <%= f.text_area :comentarios %>
+      </div>
+
+
+      <div>
+        <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+        <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+      </div>
+    <% end %>
+
+ </div>
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

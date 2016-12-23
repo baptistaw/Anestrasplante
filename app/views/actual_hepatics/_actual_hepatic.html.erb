@@ -1,0 +1,77 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= actual_hepatic.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(actual_hepatic.user_id).email%>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Sind. Hepatorrenal</th>
+      <th>Sind. Hepatorrenal</th>
+      <th>HT Pulmonar</th>
+      <th>HT Portal</th>
+      <th>Ascitis</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= actual_hepatic.s_hepatorrenal %></td>
+        <td> <%= actual_hepatic.s_hepatopulmonar %></td>
+        <td><%= actual_hepatic.ht_pulmonar %></td>
+        <td> <%= actual_hepatic.ascitis %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+      <th>Esplenomegalia</th>
+      <th>Evarices Esfofagicas</th>
+     <th>Encefalopatia<th>
+     <th>Discrasia</th>
+     <th>Hiponatremia</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= actual_hepatic.esplenomeg %></td>
+        <td> <%= actual_hepatic.varices_esof %></td>
+        <td> <%= actual_hepatic.encefalopatia %></td>
+        <td><%= actual_hepatic.discrasia %></td>
+        <td><%= actual_hepatic.hiponatremia %></td>
+      </tr>
+    </tbody>
+   <thead>
+    <tr>
+     <th>Comentarios</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= actual_hepatic.comentarios %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if actual_hepatic.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_actual_hepatic_path(actual_hepatic.patient, actual_hepatic), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_actual_hepatic_path(actual_hepatic.patient, actual_hepatic), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

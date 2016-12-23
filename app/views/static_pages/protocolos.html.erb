@@ -1,0 +1,45 @@
+<% provide(:title, 'Protocolos') %>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trasplante Hepático | <%= yield(:title) %></title>
+	</head>
+	<body>
+
+			<div class="center hero-unit">
+      <br>
+      <br>
+			<h1>Protocolos del Servicio</h1>
+		</div>
+
+
+
+<h3>Protocolo de Anestesia para el Trasplante Hepatico</h3>
+
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Titulo 1</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Titulo 2</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Titulo 3</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ul>
+        
+
+		
+	</body>
+</html>
+
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>

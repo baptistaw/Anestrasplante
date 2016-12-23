@@ -1,0 +1,67 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= actual_disease.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(actual_disease.user_id).email%>
+    </li>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Clase Funcional</th>
+      <th>Enfermedad Coronaria</th>
+      <th>HTA</th>
+      <th>Valvulopatias</th>
+      <th>Arrtimias/Marcapaso</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= actual_disease.clase_funcional %></td>
+        <td> <%= actual_disease.enf_coronaria %></td>
+        <td><%= actual_disease.hta %></td>
+        <td> <%= actual_disease.valvulopatia %></td>
+        <td><%= actual_disease.arritmias_marcapaso %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+     <th>Fumador</th>
+     <th>EPOC<th>
+     <th>Asma</th>
+     <th>Nefropatia/Uropatia</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= actual_disease.fumador %></td>
+        <td> <%= actual_disease.epoc %></td>
+        <td><%= actual_disease.asma %></td>
+        <td><%= actual_disease.nefropatia_uropatia %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if actual_disease.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_actual_disease_path(actual_disease.patient, actual_disease), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_actual_disease_path(actual_disease.patient, actual_disease), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

@@ -1,0 +1,102 @@
+
+  <ul class="list-inline">
+    <li>
+      <h4>
+        <p class="text-left"> Evaluación Preoperatoria realizada el <%= examen_fisico.updated_at.strftime("%d-%m-%Y") %></p>
+      </h4>
+    </li>
+    <li>
+       Evaluado por <%= User.find(examen_fisico.user_id).email%>
+    </li>
+  </ul>
+
+  <table class="responsive-table", class="striped">
+
+    <thead>
+    <tr>
+      <th>Apertura Bucal</th>
+      <th>MPT</th>
+      <th>Protesis</th>
+      <th>Cuello</th>
+      <th>PA Sistolica</th>
+
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= examen_fisico.apertura_bucal %></td>
+        <td> <%= examen_fisico.mpt %></td>
+        <td><%= examen_fisico.protesis %></td>
+        <td> <%= examen_fisico.cuello %></td>
+        <td><%= examen_fisico.pa_sistolica %></td>
+       </tr>
+    </tbody>
+   <thead>
+    <tr>
+      <th>PA Diastolica</th>
+      <th>FC</th>
+      <th>Soplos</th>
+      <th>PP</th>
+     <th>Tiroides</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= examen_fisico.pa_diastolica %></td>
+        <td><%= examen_fisico.fc %></td>
+        <td> <%= examen_fisico.soplos %></td>
+        <td> <%= examen_fisico.pp %></td>
+        <td> <%= examen_fisico.tiroides %></td>
+      </tr>
+    </tbody>
+   <thead>
+    <tr>
+     <th>Reperes VVC<th>
+     <th>Red Venosa</th>
+     <th>Test Allen</th>
+     <th>Siquismo</th>
+     <th>Flapping</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td> <%= examen_fisico.reperes_vvc %></td>
+        <td><%= examen_fisico.red_venosa %></td>
+        <td><%= examen_fisico.test_allen %></td>
+        <td><%= examen_fisico.siquismo %></td>
+        <td><%= examen_fisico.flapping %></td>
+
+   <thead>
+    <tr>
+     <th>Estado Nutricional</th>
+     <th>Comentarios</th>
+    <tbody>
+      <tr>
+        <td> <%= examen_fisico.estado_nutricional %></td>
+        <td> <%= examen_fisico.comentarios %></td>
+      </tr>
+    </tbody>
+
+
+
+  </table>
+
+
+<% if user_signed_in? %>
+
+    <% if examen_fisico.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+        <%= link_to "Editar", edit_patient_examen_fisico_path(examen_fisico.patient, examen_fisico), class: "btn btn-custom" %>
+        <%= link_to "Eliminar", patient_examen_fisico_path(examen_fisico.patient, examen_fisico), method: :delete, data: {confirm: "Esta seguro ?"}, class: "btn btn-custom" %>
+ 
+      </div>
+    
+    <% end %> 
+
+  <% end %>
+
+

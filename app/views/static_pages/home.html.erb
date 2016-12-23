@@ -1,0 +1,47 @@
+<div class="parallax-container">
+     <div class="parallax"><img src="http://www.saq.org.uy/web2/wp-content/uploads/2016/04/SalaDeEmergencias_Anestesia1.jpg"></div>
+ </div> 
+
+
+      <div class="section white">
+          <div class="row container">
+            <h2 class="header">Programa Nacional de Trasplante Hepático</h2>
+            <p class="grey-text text-darken-3 lighten-3"></p>
+              <% if user_signed_in? %>
+                <p>Bienvenido <%= current_user.email%> </p>
+                <%= link_to "Acceder a la Base de Datos de Anestesiología", patients_path %>
+                </p>
+              <%else%>
+                <p>Solo usuarios autorizados</p>
+                <p></p>
+                <br>
+                <p> <%= link_to "Iniciar sesion ", new_user_session_path %> para comenzar
+                </p>
+                </br>
+              <% end -%>
+          </div>
+      </div>
+
+
+<div class="parallax-container">
+
+  <div class="parallax"><img src="http://cdn.crhoy.net/imagenes/2016/08/cirujanos.jpg"></div>
+
+</div>
+
+
+
+<script src="js/jquery.js"></script>
+<script src="js/materialize.min.js"></script>
+
+<script>
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+</script>
+<script>
+.parallax-container{
+  heigth: "400";
+}
+</script>
+

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clase_funcional: MyString
+  enf_coronaria: MyString
+  hta: 1
+  valvulopatia: MyString
+  arritmias_marcapaso: MyString
+  fumador: MyString
+  epoc: MyString
+  asma: MyString
+  nefropatia_uropatia: MyString
+
+two:
+  clase_funcional: MyString
+  enf_coronaria: MyString
+  hta: 1
+  valvulopatia: MyString
+  arritmias_marcapaso: MyString
+  fumador: MyString
+  epoc: MyString
+  asma: MyString
+  nefropatia_uropatia: MyString

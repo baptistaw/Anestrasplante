@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  causa_hepatopatia: MyString
+  peso: 1
+  talla: 1
+  pxif: 1
+  meld: 1
+  melde: 1
+  child: MyString
+  asa: MyString
+  maximos_riesgos: MyText
+  ingresa_lista: false
+  causa_no_ingreso: MyText
+  estudios_pendientes: MyText
+  candidato_fastrack: false
+  candidato_tranexamico: false
+
+two:
+  causa_hepatopatia: MyString
+  peso: 1
+  talla: 1
+  pxif: 1
+  meld: 1
+  melde: 1
+  child: MyString
+  asa: MyString
+  maximos_riesgos: MyText
+  ingresa_lista: false
+  causa_no_ingreso: MyText
+  estudios_pendientes: MyText
+  candidato_fastrack: false
+  candidato_tranexamico: false
