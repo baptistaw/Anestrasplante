@@ -31,7 +31,7 @@ class PatientPdf < Prawn::Document
 
 		move_down 10
 
-		[["Nombre", "Apellido", "CI", "FNR", "Sexo", "F.Nacimiento", "Procedencia", "F.Ingresado al Sistema", "Prestador"]] +
+		[["Nombre", "Apellido", "CI", "FNR", "Sexo", "F.Nacimiento", "Procedencia", "F.Ingreso a Lista", "Prestador"]] +
 
 		@patients.map do |patient|
 			[patient.nombre, patient.apellido, patient.ci, patient.fnr, patient.sexo, patient.f_nacimiento, patient.procedencia, patient.f_ingreso, patient.prestador]
