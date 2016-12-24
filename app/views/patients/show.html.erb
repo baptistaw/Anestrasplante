@@ -178,6 +178,12 @@
   </ul>
 
 <script>
+function afterAngularOrReactHasCreatedAllDOM (){
+    // Manually make all DOM with .collapsible collapsible 
+    $('.collapsible').collapsible();
+}
+</script>
+<script>
  $(document).ready(function(){
     $('.collapsible').collapsible();
   });
