@@ -72,6 +72,12 @@
   <% end %>
 </div>
 
+<div class="container">
+<br /><br />
+  <a class="waves-effect waves-light btn" onClick="expandAll();"><i class="material-icons left">fullscreen</i>Expand All</a>
+  <a class="waves-effect waves-light btn" onClick="collapseAll();"><i class="material-icons left">fullscreen_exit</i>Collapse All</a>
+<br /><br />
+
 
   <ul class="collapsible popout" data-collapsible="accordion">
     <li>
@@ -177,27 +183,22 @@
 
   </ul>
 
+
+
 <script>
-function afterAngularOrReactHasCreatedAllDOM (){
-    // Manually make all DOM with .collapsible collapsible 
-    $('.collapsible').collapsible();
+function expandAll(){
+  $(".collapsible-header").addClass("active");
+  $(".collapsible").collapsible({accordion: false});
 }
 </script>
 <script>
- $(document).ready(function(){
-    $('.collapsible').collapsible();
+function collapseAll(){
+  $(".collapsible-header").removeClass(function(){
+    return "active";
   });
+  $(".collapsible").collapsible({accordion: true});
+  $(".collapsible").collapsible({accordion: false});
+}
 </script>
-<script>
-  $('.collapsible').collapsible({
-      accordion: true, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-      onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
-      onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
-    }
-</script>
-
-
-
-
 
 
