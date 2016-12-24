@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         
     end
 
-  config.sign_out_via = :delete
+  
   
   get 'static_pages/protocolos', to: "static_pages#protocolos"
 
