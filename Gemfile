@@ -22,6 +22,7 @@ gem 'prawn-table'
 gem 'devise-i18n-views', github: 'mcasimir/devise-i18n-views', branch: :master
 gem 'pg'
 
+ruby '2.1.8'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
