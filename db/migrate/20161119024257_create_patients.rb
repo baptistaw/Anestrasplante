@@ -5,7 +5,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :apellido
       t.string :ci
       t.date :f_ingreso
-      t.string :f_nacimiento
+    
 
       t.timestamps null: false
     end
