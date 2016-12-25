@@ -149,9 +149,10 @@
   <div class="container">
     <% case @opcion %>
     <% when '1' %>
-       <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+       
         <%= render @patient.corevaluations %>
+        <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
 
     <% when '2' %>
     
