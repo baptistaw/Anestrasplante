@@ -72,147 +72,106 @@
   <% end %>
 </div>
 
-<div class="container">
-<br /><br />
-  <a class="waves-effect waves-light btn" onClick="expandAll();"><i class="material-icons left"></i>Expand All</a>
-  <a class="waves-effect waves-light btn" onClick="collapseAll();"><i class="material-icons left"></i>Collapse All</a>
-<br /><br />
 
 
-  <ul class="collapsible popout" data-collapsible="accordion">
-    <li>
-      
-      <div class="collapsible-header"><i class="material-icons"></i>Datos Generales</div>
-      
-      <div class="collapsible-body">
-        <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
+
+ <div class="panel-body">
+    <ul class="nav nav-tabs">
+      <% if @opcion == '1' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'Datos Generales', patient_path(@patient, opcion: '1') %>
+      </li>
+      <% if @opcion == '2' %>
+          <li class="active">
+      <% else %>
+          <li>
+      <% end %>
+        <%= link_to 'AP', patient_path(@patient, opcion: '2') %>
+      </li>
+      <% if @opcion == '3' %>
+          <li class="active">
+      <% else %>
+          <li>
+      <% end %>
+        <%= link_to 'A Enf Hepatica', patient_path(@patient, opcion: '3') %>
+      </li>
+      <% if @opcion == '4' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'EA', patient_path(@patient, opcion: '4') %>
+      </li>
+
+      <% if @opcion == '5' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'Enf Hepatica Actual', patient_path(@patient, opcion: '5') %>
+      </li>
+      <% if @opcion == '6' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'Examen Fisico', patient_path(@patient, opcion: '6') %>
+      </li>
+      <% if @opcion == '7' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'Tratamiento', patient_path(@patient, opcion: '7') %>
+      </li>
+      <% if @opcion == '8' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'Paraclinica', patient_path(@patient, opcion: '8') %>
+      </li>
+      <% if @opcion == '9' %>
+        <li class="active">
+      <% else %>
+        <li>
+      <% end %>
+        <%= link_to 'Examenes Complementarios', patient_path(@patient, opcion: '9') %>
+      </li>
+    </ul>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <% case @opcion %>
+    <% when '1' %>
+       <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
         <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
         <%= render @patient.corevaluations %>
-      </div>
 
-    </li>
+    <% when '2' %>
     
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Antecedentes Personales generales</div>
-      
-      <div class="collapsible-body">
+    <% when '3' %>
+  
+    <% when '4' %>
 
-        <%= link_to "Ingresar Antecedentes Personales generales", new_patient_antecedent_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.antecedents %>
+    <% when '5' %>
 
-      </div>
-    
-    </li>
-    
+    <% when '6' %>
 
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Antecedentes de la Enfermedad Hepatica</div>
-      <div class="collapsible-body">
+    <% when '7' %>
 
-        <%= link_to "Ingresar Antecedentes de la Enfermedad Hepatica", new_patient_antecedent_hepatic_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.antecedent_hepatics %>
+    <% when '8' %>
 
-      </div>
-    </li>
-
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Enfermedad Actual datos generales</div>
-      <div class="collapsible-body">
-        <%= link_to "Ingresar datos generales de la Enfermedad Actual", new_patient_actual_disease_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.actual_diseases %>
-
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Enfermedad Hepatica Actual</div>
-      <div class="collapsible-body">
-
-        <%= link_to "Ingresar datos de la Enfermedad Hepatica actual", new_patient_actual_hepatic_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.actual_hepatics %>
-
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Examen Fisico</div>
-      <div class="collapsible-body">
-
-        <%= link_to "Ingresar dados del Examen Fisico", new_patient_examen_fisico_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.examen_fisicos %>
-
-      </div>
-    </li>
-
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Tratamiento Farmacologico</div>
-      <div class="collapsible-body">
-
-        <%= link_to "Ingresar Tratamiento Farmacologico actual", new_patient_farmacologico_treatment_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.farmacologico_treatments %>
+    <% when '9' %>
+  
+    <% end %>
+  </div>
 
 
-      </div>
-    </li>
-
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Examenes de Laboratorio</div>
-      <div class="collapsible-body">
-
-        <%= link_to "Ingresar Examens de Laboratorio", new_patient_laboratory_exam_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.laboratory_exams %>
-
-      </div>
-    </li>
-
-    <li>
-      <div class="collapsible-header"><i class="material-icons"></i>Examenes Complementarios de valoracion</div>
-      <div class="collapsible-body">
-
-        <%= link_to "Ingresar Examenes Comlementarios", new_patient_complementarios_exam_path(@patient), class: 'btn btn-warning' %>
-        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-        <%= render @patient.complementarios_exams %>
-
-      </div>
-    </li>
-
-  </ul>
-</div>
-
-<script>
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
-
-</script>
 
 
-<script>
-  $('.collapsible').collapsible({
-      accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-      onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
-      onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
-    }
-  );
-</script>
-
-<script>
-function expandAll(){
-  $(".collapsible-header").addClass("active");
-  $(".collapsible").collapsible({accordion: false});
-}
-</script>
-<script>
-function collapseAll(){
-  $(".collapsible-header").removeClass(function(){
-    return "active";
-  });
-  $(".collapsible").collapsible({accordion: true});
-  $(".collapsible").collapsible({accordion: false});
-}
-</script>
