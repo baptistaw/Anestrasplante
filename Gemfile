@@ -44,7 +44,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
+gem 'bootstrap_sb_admin_base_v2'
 
 
 
-
+gem 'faker', '1.6.3', group: :development
