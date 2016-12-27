@@ -24,8 +24,13 @@ before_action :find_patient, only: [:hcpaciente, :show, :edit, :update, :destroy
 
 
 	def show
-	
+		 if params.has_key?(:opcion)
+	      @opcion = params[:opcion]
+	    else
+	      @opcion = 1
+		end
 	end
+	
 
 	def new
 		@patient= current_user.patients.build
