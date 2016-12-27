@@ -8,10 +8,7 @@ class CorevaluationsController < ApplicationController
 	@corevaluation = Corevaluation.new
 	end
 
-	def show
-	end
 	
-
 	def create
 	@corevaluation = Corevaluation.new(corevaluation_params)
 	@corevaluation.patient_id = @patient.id
