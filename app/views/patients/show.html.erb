@@ -27,7 +27,7 @@
       <th>Prestador</th>
       <th>Procedencia</th>
       <th>Fecha Ingreso al Sistema</th>
-      <th>Fecha Ingreso a lista Trasplante</th>
+      <th>Fecha Ingreso al Programa de Trasplante</th>
       <th>Fnr</th>
       <th></th>
     </tr>
@@ -145,30 +145,56 @@
   <br>
 
   <div class="container">
+    
     <% case @opcion %>
+
     <% when '1' %>
-       
-        <%= render @patient.corevaluations %>
         <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
         <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.corevaluations %>
 
     <% when '2' %>
+        <%= link_to "Ingresar Antecedentes Personales generales", new_patient_antecedent_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.antecedents %>
     
     <% when '3' %>
-  
+       <%= link_to "Ingresar Antecedentes de la Enfermedad Hepatica", new_patient_antecedent_hepatic_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.antecedent_hepatics %>
+
     <% when '4' %>
+       <%= link_to "Ingresar datos generales de la Enfermedad Actual", new_patient_actual_disease_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.actual_diseases %>
 
     <% when '5' %>
+       <%= link_to "Ingresar datos de la Enfermedad Hepatica actual", new_patient_actual_hepatic_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.actual_hepatics %>
 
     <% when '6' %>
+       <%= link_to "Ingresar dados del Examen Fisico", new_patient_examen_fisico_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.examen_fisicos %>
 
     <% when '7' %>
+        <%= link_to "Ingresar Tratamiento Farmacologico actual", new_patient_farmacologico_treatment_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.farmacologico_treatments %>
 
     <% when '8' %>
+        <%= link_to "Ingresar Examens de Laboratorio", new_patient_laboratory_exam_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.laboratory_exams %>
 
     <% when '9' %>
-  
+         <%= link_to "Ingresar Examenes Comlementarios", new_patient_complementarios_exam_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.complementarios_exams %>
+
     <% end %>
+
   </div>
 
 
