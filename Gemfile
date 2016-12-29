@@ -21,8 +21,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'devise-i18n-views', github: 'mcasimir/devise-i18n-views', branch: :master
 gem 'puma'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+
 
 ruby '2.1.8'
 
