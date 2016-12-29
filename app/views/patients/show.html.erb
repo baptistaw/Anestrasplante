@@ -16,7 +16,7 @@
     </li>
   </ul>
 
-  <%= link_to "Imprimir Historia Clinica completa", hcpaciente_path(@patient.id) %> 
+  <%= link_to "Imprimir Historia Clinica completa", hcpaciente_path(@patient.id format: "pdf") %> 
 
   <table class="responsive-table">
     <thead>
