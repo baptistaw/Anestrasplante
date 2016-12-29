@@ -20,7 +20,6 @@ before_action :find_patient, only: [:hcpaciente, :show, :edit, :update, :destroy
     end
 
     def hcpaciente
-    	
     end
 
 
