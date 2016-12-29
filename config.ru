@@ -3,3 +3,5 @@
 require ::File.expand_path('../config/environment', __FILE__)
 run Rails.application
 require 'csv'
+require 'pdfkit'
+config.middleware.use PDFKit::Middleware, :print_media_type => true

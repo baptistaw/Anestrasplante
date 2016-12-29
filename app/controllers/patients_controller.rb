@@ -20,11 +20,9 @@ before_action :find_patient, only: [:hcpaciente, :show, :edit, :update, :destroy
     end
 
     def hcpaciente
-		respond_to do |format|
-      	format.html
-      	format.pdf do
-        render pdf: "HCcompleta"   # Excluding ".pdf" extension.
-      end
+	
+    end
+    
     end
 
     end
