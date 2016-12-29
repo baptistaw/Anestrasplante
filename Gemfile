@@ -23,7 +23,6 @@ gem 'devise-i18n-views', github: 'mcasimir/devise-i18n-views', branch: :master
 gem 'puma'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'pdfkit'
 
 ruby '2.1.8'
 
