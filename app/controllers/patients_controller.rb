@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-before_action :find_patient, only: [:hcpaciente, :show, :edit, :update, :destroy]
+before_action :find_patient, only: [:hcpaciente, :historia, :show, :edit, :update, :destroy]
 
 
 	def index
@@ -68,6 +68,14 @@ before_action :find_patient, only: [:hcpaciente, :show, :edit, :update, :destroy
 
 	end
 
+	def historia
+	 respond_to do |format|
+	  format.pdf do
+	   pdf = HistoriaPdf.new(@patient)
+	   send_data pdf.render, filename: 'Historia de paciente.pdf', type: 'application/pdf', dispositio: "inline"
+	  end
+	 end
+	end
 
 	private
 

@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get 'patients/:id/hcpaciente', to: "patients#hcpaciente", as: "hcpaciente"
 
+  get 'patients/:id/historia', to: "patients#historia", as: "historia"  
+
 #  root "patients#index"
 
 end
